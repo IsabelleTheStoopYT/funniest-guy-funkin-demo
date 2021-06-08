@@ -496,43 +496,28 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 			case 'funniest':
-				tex = Paths.getSparrowAtlas('funniest_assets');
+				tex = Paths.getSparrowAtlas('fg-assets');
 				frames = tex;
-				animation.addByPrefix('idle', "Pico Idle Dance", 24);
-				animation.addByPrefix('singUP', 'pico Up note0', 24, false);
-				animation.addByPrefix('singDOWN', 'Pico Down Note0', 24, false);
-				if (isPlayer)
-				{
-					animation.addByPrefix('singLEFT', 'Pico NOTE LEFT0', 24, false);
-					animation.addByPrefix('singRIGHT', 'Pico Note Right0', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'Pico Note Right Miss', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'Pico NOTE LEFT miss', 24, false);
-				}
-				else
-				{
-					// Need to be flipped! REDO THIS LATER!
-					animation.addByPrefix('singLEFT', 'Pico Note Right0', 24, false);
-					animation.addByPrefix('singRIGHT', 'Pico NOTE LEFT0', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'Pico NOTE LEFT miss', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'Pico Note Right Miss', 24, false);
-				}
+				animation.addByPrefix('idle', "fg idle", 24);
+				animation.addByPrefix('singUP', 'fg up', 24, false);
+				animation.addByPrefix('singDOWN', 'fg down', 24, false);
+				animation.addByPrefix('singLEFT', 'fg left', 24, false);
+				animation.addByPrefix('singRIGHT', 'fg right', 24, false);
 
-				animation.addByPrefix('singUPmiss', 'pico Up note miss', 24);
-				animation.addByPrefix('singDOWNmiss', 'Pico Down Note MISS', 24);
+				addOffset('idle', -150, -70);
+				addOffset("singUP", -160, -70);
+				addOffset("singRIGHT", -150, -70);
+				addOffset("singLEFT", -96, -98);
+				addOffset("singDOWN", -96, -148);
 
-				addOffset('idle');
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -68, -7);
-				addOffset("singLEFT", 65, 9);
-				addOffset("singDOWN", 200, -70);
-				addOffset("singUPmiss", -19, 67);
-				addOffset("singRIGHTmiss", -60, 41);
-				addOffset("singLEFTmiss", 62, 64);
-				addOffset("singDOWNmiss", 210, -28);
+				setGraphicSize(Std.int(width * 2));
+				updateHitbox();
 
 				playAnim('idle');
 
 				flipX = true;
+
+				antialiasing = true;
 
 		}
 
